@@ -246,10 +246,10 @@ nnI1ModelDim = nnI1ModelDim(region1); nnI1ModelPA = nnI1ModelPA(region1); nnI1Mo
 nnS1ModelDim = nnS1ModelDim(region1); nnS1ModelPA = nnS1ModelPA(region1); nnS1ModelPairBased = nnS1ModelPairBased(region1); nnS1ModelREDM = nnS1ModelREDM(region1);
 nnR1ModelDim = nnR1ModelDim(region1); nnR1ModelPA = nnR1ModelPA(region1); nnR1ModelPairBased = nnR1ModelPairBased(region1); nnR1ModelREDM = nnR1ModelREDM(region1);
 
-errSIRDimMean = sqrt(mean((nnS1ModelDim - nnS1).^2 + (nnI1ModelDim - nnI1).^2 + (nnR1ModelDim - nnR1).^2));
-errSIRPAMean = sqrt(mean((nnS1ModelPA - nnS1).^2 + (nnI1ModelPA - nnI1).^2 + (nnR1ModelPA - nnR1).^2));
-errSIRPairBasedMean = sqrt(mean((nnS1ModelPairBased' - nnS1).^2 + (nnI1ModelPairBased' - nnI1).^2 + (nnR1ModelPairBased' - nnR1).^2));
-errSIRREDMMean = sqrt(mean((nnS1ModelREDM' - nnS1).^2 + (nnI1ModelREDM' - nnI1).^2 + (nnR1ModelREDM' - nnR1).^2));
+errSIRDimMean = mean(sqrt((nnS1ModelDim - nnS1).^2 + (nnI1ModelDim - nnI1).^2 + (nnR1ModelDim - nnR1).^2));
+errSIRPAMean = mean(sqrt((nnS1ModelPA - nnS1).^2 + (nnI1ModelPA - nnI1).^2 + (nnR1ModelPA - nnR1).^2));
+errSIRPairBasedMean = mean(sqrt((nnS1ModelPairBased' - nnS1).^2 + (nnI1ModelPairBased' - nnI1).^2 + (nnR1ModelPairBased' - nnR1).^2));
+errSIRREDMMean = mean(sqrt((nnS1ModelREDM' - nnS1).^2 + (nnI1ModelREDM' - nnI1).^2 + (nnR1ModelREDM' - nnR1).^2));
 
 legCell = {'True', 'Hom. pair', 'Red. eff. deg.', 'Pair-based', 'Dim.'};
 

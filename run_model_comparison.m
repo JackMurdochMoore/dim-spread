@@ -26,8 +26,8 @@
 % networkFlag = 46; lam = 0.1; gam = 0.05; nTrials = 100; run_model_comparison(networkFlag, lam, gam, nTrials); 
 % networkFlag = 56; lam = 0.1; gam = 0.05; nTrials = 100; run_model_comparison(networkFlag, lam, gam, nTrials); 
 % 
-% lam = 0.1; gam = 0.05; nTrials = 100; for networkFlag = [15, 23, 46, -4, -3, 0]; run_model_comparison(networkFlag, lam, gam, nTrials); close all; end
-% lam = 0.05; gam = 0.2; nTrials = 100; for networkFlag = [15, 23, 46, -4, -3, 0]; run_model_comparison(networkFlag, lam, gam, nTrials); close all; end
+% lam = 0.1; gam = 0.05; nTrials = 100; for networkFlag = [15, 23, 46, -4, -3, 0]; run_model_comparison(networkFlag, lam, gam, nTrials); end
+% lam = 0.05; gam = 0.2; nTrials = 100; for networkFlag = [15, 23, 46, -4, -3, 0]; run_model_comparison(networkFlag, lam, gam, nTrials); end
 %
 % 
 % Moore et al. (2024), "Network spreading from network dimension"
@@ -230,10 +230,10 @@ nnI1ModelDim = nnI1ModelDim(region1); nnI1ModelMF = nnI1ModelMF(region1); nnI1Mo
 nnS1ModelDim = nnS1ModelDim(region1); nnS1ModelMF = nnS1ModelMF(region1); nnS1ModelPDMC = nnS1ModelPDMC(region1); nnS1ModelMFHet = nnS1ModelMFHet(region1);
 nnR1ModelDim = nnR1ModelDim(region1); nnR1ModelMF = nnR1ModelMF(region1); nnR1ModelPDMC = nnR1ModelPDMC(region1); nnR1ModelMFHet = nnR1ModelMFHet(region1);
 
-errSIRDimMean = sqrt(mean((nnS1ModelDim - nnS1).^2 + (nnI1ModelDim - nnI1).^2 + (nnR1ModelDim - nnR1).^2));
-errSIRMFMean = sqrt(mean((nnS1ModelMF - nnS1).^2 + (nnI1ModelMF - nnI1).^2 + (nnR1ModelMF - nnR1).^2));
-errSIRPDMCMean = sqrt(mean((nnS1ModelPDMC - nnS1).^2 + (nnI1ModelPDMC - nnI1).^2 + (nnR1ModelPDMC - nnR1).^2));
-errSIRHetMFMean = sqrt(mean((nnS1ModelMFHet - nnS1).^2 + (nnI1ModelMFHet - nnI1).^2 + (nnR1ModelMFHet - nnR1).^2));
+errSIRDimMean = mean(sqrt((nnS1ModelDim - nnS1).^2 + (nnI1ModelDim - nnI1).^2 + (nnR1ModelDim - nnR1).^2));
+errSIRMFMean = mean(sqrt((nnS1ModelMF - nnS1).^2 + (nnI1ModelMF - nnI1).^2 + (nnR1ModelMF - nnR1).^2));
+errSIRPDMCMean = mean(sqrt((nnS1ModelPDMC - nnS1).^2 + (nnI1ModelPDMC - nnI1).^2 + (nnR1ModelPDMC - nnR1).^2));
+errSIRHetMFMean = mean(sqrt((nnS1ModelMFHet - nnS1).^2 + (nnI1ModelMFHet - nnI1).^2 + (nnR1ModelMFHet - nnR1).^2));
 
 legCell = {'True', 'Hom. MF', 'Het. MF', 'PDMC', 'Dim.'};
 
