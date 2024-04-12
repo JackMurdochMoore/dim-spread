@@ -20,10 +20,6 @@ _results-time-series-new_: Folder in which results are saved.
 
 __Functions and scripts:__\
 _BA_mod_2.m_: Generate BA scale-free network.\
-_calc_R0_D_new.m_: Calculate basic reproduction number R_0 for dimensional spreading model\
-_calc_R0_het.m_: Calculate basic reproduction number R_0 for heterogeneous mean field model.\ 
-_calc_R0_hom.m_: Calculate basic reproduction number R_0 for homogeneous mean field model.\
-_calc_R0_PDMC.m_: Calculate basic reproduction number R_0 for PDMC model.\
 _count_distances.m_: Return vector of network distances and number of pairs of distinct nodes at each network distance.\
 _est_corr_dim_new_1.m_: Estimate correlation dimension† and scaling interval of a networks using different methods and model c(s) ∝ s^(D-1).\
 _inclusivity.m_: Generate correlated version\# of BA scale-free network.\
@@ -33,9 +29,6 @@ _run_model_comparison.m_: Compare Monte Carlo (ground truth) with dimensional sp
 _run_sir_0_mod_2.m_: Run ground truth discrete SIR model.\
 _run_sir_dim_new_1.m_: Run dimensional spreading SIR model.\
 _run_sir_pair_based_model.m_: Run pair-based SIR model§.\
-_calc_R0_het.m_: Calculate basic reproduction number R_0 for heterogeneous mean field model.\
-_calc_R0_hom.m_: Calculate basic reproduction number R_0 for homogeneous mean field model.\
-_calc_R0_PDMC.m_: Calculate basic reproduction number R_0 for PDMC model.\
 _small_world_manhattan.m_: Generate lattice\* or small world network\*.\
 _small_world_manhattan_lcc.m_: Generate lattice\* or small world network* and retain only its largest connected component.\
 
