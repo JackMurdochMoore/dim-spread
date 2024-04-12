@@ -8,7 +8,7 @@ Jack Murdoch Moore, Michael Small, Gang Yan, Huijie Yang, Changgui Gu, and Haiyi
 
 __Correlation dimension__ D is defined by the power-law\*\
 c(s) ∝ s^(D-1),\
-where D is correlation dimension\†, and c(s) is correlation (fraction of distinct nodes at distance s).
+where D is correlation dimension†, and c(s) is correlation (fraction of distinct nodes at distance s).
 
 __To produce some figures__ from the manuscript, please run:\
 run_model_comparison\
@@ -25,14 +25,14 @@ _calc_R0_het.m_: Calculate basic reproduction number R_0 for heterogeneous mean 
 _calc_R0_hom.m_: Calculate basic reproduction number R_0 for homogeneous mean field model.\
 _calc_R0_PDMC.m_: Calculate basic reproduction number R_0 for PDMC model.\
 _count_distances.m_: Return vector of network distances and number of pairs of distinct nodes at each network distance.\
-_est_corr_dim_new_1.m_: Estimate correlation dimension\† and scaling interval of a networks using different methods and model c(s) ∝ s^(D-1).\
+_est_corr_dim_new_1.m_: Estimate correlation dimension† and scaling interval of a networks using different methods and model c(s) ∝ s^(D-1).\
 _inclusivity.m_: Generate correlated version\# of BA scale-free network.\
 _load_network.m_: Load an empirical network from data in folder "networks".\
 _run_alt_model_comparison.m_: Compare Monte Carlo (ground truth) with dimensional spreading, reduced effective degree, homogeneous pair approximation, and pair-based models. Also return mean RMS error for each model.\
 _run_model_comparison.m_: Compare Monte Carlo (ground truth) with dimensional spreading, homogeneous mean field, heterogeneous mean field and PDMC models. Also return mean RMS error and R_0 for each model.\
 _run_sir_0_mod_2.m_: Run ground truth discrete SIR model.\
 _run_sir_dim_new_1.m_: Run dimensional spreading SIR model.\
-_run_sir_pair_based_model.m_: Run pair-based SIR model\§.\
+_run_sir_pair_based_model.m_: Run pair-based SIR model§.\
 _calc_R0_het.m_: Calculate basic reproduction number R_0 for heterogeneous mean field model.\
 _calc_R0_hom.m_: Calculate basic reproduction number R_0 for homogeneous mean field model.\
 _calc_R0_PDMC.m_: Calculate basic reproduction number R_0 for PDMC model.\
@@ -43,8 +43,8 @@ _small_world_manhattan_lcc.m_: Generate lattice\* or small world network* and re
 
 \# Correlated versions of BA networks are inclusivity model networks introduced in "Inclusivity enhances robustness and efficiency of social networks”, Physica A 563, 125490, by J.M. Moore, M. Small, and G. Yan (2021).
 
-\† Correlation dimension is estimated following "Correlation dimension in empirical networks”, "Correlation dimension in empirical networks" by J.M. Moore, H. Wang, M. Small, G. Yan, H. Yang, and C. Gu (associated code at https://github.com/JackMurdochMoore/net-corr-dim).
+† Correlation dimension is estimated following "Correlation dimension in empirical networks”, "Correlation dimension in empirical networks" by J.M. Moore, H. Wang, M. Small, G. Yan, H. Yang, and C. Gu (associated code at https://github.com/JackMurdochMoore/net-corr-dim).
 
-\§ Code for the pair-based model is adapted from pair_based_model.m by K. J. Sharkey (2010), which is available in the supplementary material for “Deterministic epidemic models on contact networks: correlations and unbiological terms”, Theoretical Population Biology, Volume 79, Issue 4, % June 2011, Pages 115-129.
+§ Code for the pair-based model is adapted from pair_based_model.m by K. J. Sharkey (2010), which is available in the supplementary material for “Deterministic epidemic models on contact networks: correlations and unbiological terms”, Theoretical Population Biology, Volume 79, Issue 4, % June 2011, Pages 115-129.
 
 
