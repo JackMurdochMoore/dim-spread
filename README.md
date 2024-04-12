@@ -24,8 +24,8 @@ _count_distances.m_: Return vector of network distances and number of pairs of d
 _est_corr_dim_new_1.m_: Estimate correlation dimension† and scaling interval of a networks using different methods and model c(s) ∝ s^(D-1).\
 _inclusivity.m_: Generate correlated version\# of BA scale-free network.\
 _load_network.m_: Load an empirical network from data in folder "networks".\
-_run_alt_model_comparison.m_: Compare Monte Carlo (ground truth) with dimensional spreading, reduced effective degree, homogeneous pair approximation, and pair-based models. Also return mean RMS error for each model.\
-_run_model_comparison.m_: Compare Monte Carlo (ground truth) with dimensional spreading, homogeneous mean field, heterogeneous mean field and PDMC models. Also return mean RMS error and R_0 for each model.\
+_run_alt_model_comparison.m_: Compare Monte Carlo (ground truth) with dimensional spreading, reduced effective degree, homogeneous pair approximation, and pair-based models. Also return mean Euclidean error for each model.\
+_run_model_comparison.m_: Compare Monte Carlo (ground truth) with dimensional spreading, homogeneous mean field, heterogeneous mean field and PDMC models. Also return mean Euclidean error and R_0 for each model.\
 _run_sir_0_mod_2.m_: Run ground truth discrete SIR model.\
 _run_sir_dim_new_1.m_: Run dimensional spreading SIR model.\
 _run_sir_pair_based_model.m_: Run pair-based SIR model§.\
