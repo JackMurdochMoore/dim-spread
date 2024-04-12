@@ -230,10 +230,10 @@ nnI1ModelDim = nnI1ModelDim(region1); nnI1ModelMF = nnI1ModelMF(region1); nnI1Mo
 nnS1ModelDim = nnS1ModelDim(region1); nnS1ModelMF = nnS1ModelMF(region1); nnS1ModelPDMC = nnS1ModelPDMC(region1); nnS1ModelMFHet = nnS1ModelMFHet(region1);
 nnR1ModelDim = nnR1ModelDim(region1); nnR1ModelMF = nnR1ModelMF(region1); nnR1ModelPDMC = nnR1ModelPDMC(region1); nnR1ModelMFHet = nnR1ModelMFHet(region1);
 
-errSIRDimMean = sqrt(sum((nnS1ModelDim - nnS1).^2 + (nnI1ModelDim - nnI1).^2 + (nnR1ModelDim - nnR1).^2))/numel(nnI1);
-errSIRMFMean = sqrt(sum((nnS1ModelMF - nnS1).^2 + (nnI1ModelMF - nnI1).^2 + (nnR1ModelMF - nnR1).^2))/numel(nnI1);
-errSIRPDMCMean = sqrt(sum((nnS1ModelPDMC - nnS1).^2 + (nnI1ModelPDMC - nnI1).^2 + (nnR1ModelPDMC - nnR1).^2))/numel(nnI1);
-errSIRHetMFMean = sqrt(sum((nnS1ModelMFHet - nnS1).^2 + (nnI1ModelMFHet - nnI1).^2 + (nnR1ModelMFHet - nnR1).^2))/numel(nnI1);
+errSIRDimMean = sqrt(mean((nnS1ModelDim - nnS1).^2 + (nnI1ModelDim - nnI1).^2 + (nnR1ModelDim - nnR1).^2));
+errSIRMFMean = sqrt(mean((nnS1ModelMF - nnS1).^2 + (nnI1ModelMF - nnI1).^2 + (nnR1ModelMF - nnR1).^2));
+errSIRPDMCMean = sqrt(mean((nnS1ModelPDMC - nnS1).^2 + (nnI1ModelPDMC - nnI1).^2 + (nnR1ModelPDMC - nnR1).^2));
+errSIRHetMFMean = sqrt(mean((nnS1ModelMFHet - nnS1).^2 + (nnI1ModelMFHet - nnI1).^2 + (nnR1ModelMFHet - nnR1).^2));
 
 legCell = {'True', 'Hom. MF', 'Het. MF', 'PDMC', 'Dim.'};
 
@@ -298,7 +298,7 @@ pl(3).Color = standard2Col; pl(3).MarkerFaceColor = standard2Col;
 pl(4).Color = standard3Col; pl(4).MarkerFaceColor = standard3Col;
 pl(5).Color = proposedCol; pl(5).MarkerFaceColor = proposedCol;
 box on; xlim([min(tt) - eps, min(max(tt), max(tt1)  + 1)]);
-xlabel('Time, $t$', 'Interpreter', 'LaTeX', 'FontSize', fontSize); ylabel('Frac. exposed, $R(t)/N$', 'Interpreter', 'LaTeX', 'FontSize', fontSize);
+xlabel('Time, $t$', 'Interpreter', 'LaTeX', 'FontSize', fontSize); ylabel('Frac. affected, $R(t)/N$', 'Interpreter', 'LaTeX', 'FontSize', fontSize);
 set(gca, 'TickLabelInterpreter', 'LaTeX', 'FontSize', fontSize);
 yLim = ylim;
 set(gca, 'YScale', 'Log');
