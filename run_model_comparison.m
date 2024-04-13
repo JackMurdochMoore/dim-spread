@@ -21,13 +21,9 @@
 % networkFlag = 0; lam = 0.1; gam = 0.05; nTrials = 100; run_model_comparison(networkFlag, lam, gam, nTrials); 
 % networkFlag = -3; lam = 0.1; gam = 0.05; nTrials = 100; run_model_comparison(networkFlag, lam, gam, nTrials); 
 % networkFlag = -4; lam = 0.1; gam = 0.05; nTrials = 100; run_model_comparison(networkFlag, lam, gam, nTrials); 
-% networkFlag = 15; lam = 0.1; gam = 0.05; nTrials = 100; run_model_comparison(networkFlag, lam, gam, nTrials); 
-% networkFlag = 23; lam = 0.1; gam = 0.05; nTrials = 100; run_model_comparison(networkFlag, lam, gam, nTrials); 
-% networkFlag = 46; lam = 0.1; gam = 0.05; nTrials = 100; run_model_comparison(networkFlag, lam, gam, nTrials); 
-% networkFlag = 56; lam = 0.1; gam = 0.05; nTrials = 100; run_model_comparison(networkFlag, lam, gam, nTrials); 
-% 
-% lam = 0.1; gam = 0.05; nTrials = 100; for networkFlag = [15, 23, 46, -4, -3, 0]; run_model_comparison(networkFlag, lam, gam, nTrials); end
-% lam = 0.05; gam = 0.2; nTrials = 100; for networkFlag = [15, 23, 46, -4, -3, 0]; run_model_comparison(networkFlag, lam, gam, nTrials); end
+% networkFlag = 2; lam = 0.1; gam = 0.05; nTrials = 100; run_model_comparison(networkFlag, lam, gam, nTrials); 
+% networkFlag = 5; lam = 0.1; gam = 0.05; nTrials = 100; run_model_comparison(networkFlag, lam, gam, nTrials); 
+% networkFlag = 7; lam = 0.1; gam = 0.05; nTrials = 100; run_model_comparison(networkFlag, lam, gam, nTrials); 
 %
 % 
 % Moore et al. (2024), "Network spreading from network dimension"
@@ -237,7 +233,7 @@ errSIRHetMFMean = mean(sqrt((nnS1ModelMFHet - nnS1).^2 + (nnI1ModelMFHet - nnI1)
 
 legCell = {'True', 'Hom. MF', 'Het. MF', 'PDMC', 'Dim.'};
 
-disp(['Mean RMS Error over t ∈ {0, 1, ..., ', num2str(max(tt1)), '} [Hom. MF, Het. MF, PDMC, Dim.]:']);
+disp(['Mean Error over t ∈ {0, 1, ..., ', num2str(max(tt1)), '} [Hom. MF, Het. MF, PDMC, Dim.]:']);
 disp([errSIRMFMean, errSIRPDMCMean, errSIRHetMFMean, errSIRDimMean]);
 
 %Plot number infected:

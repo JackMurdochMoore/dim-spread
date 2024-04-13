@@ -73,7 +73,7 @@ switch networkFlag
         nameStr = 'FB pages, politician';
         nameStr2 = 'Facebook mutual likes: Politician';
         
-    case 12        
+    case 4        
         % 
         % PhDs in computer science
         % https://networkrepository.com/ca-CSphd.php
@@ -93,7 +93,7 @@ switch networkFlag
         nameStr = 'CS PhD';
         nameStr2 = 'PhD supervision: Computer science';
     
-    case 13        
+    case 5        
         % 
         % Erdos collaboration network
         % https://networkrepository.com/ca-Erdos992.php
@@ -114,7 +114,7 @@ switch networkFlag
         nameStr = 'Erdos';
         nameStr2 = 'Collaboration: Erdos';
         
-    case 15        
+    case 6        
         % 
         % Collaboration network of arXiv General Relativity
         % https://networkrepository.com/ca-GrQc.php
@@ -148,7 +148,7 @@ switch networkFlag
         nameStr = 'arXiv GR';
         nameStr2 = 'Collaboration: General relativity';
         
-    case 16        
+    case 7        
         %
         % Udry schools data #27, largest connected component
         % https://github.com/JackMurdochMoore/small-world
@@ -165,7 +165,7 @@ switch networkFlag
         nameStr = 'School 27';
         nameStr2 = 'High school friendship';
         
-    case 17        
+    case 8        
         % 
         % Udry schools data #67, largest connected component
         % https://github.com/JackMurdochMoore/small-world
@@ -207,7 +207,7 @@ switch networkFlag
         nameStr = 'School 67';
         nameStr2 = 'High school friendship (2)';
         
-    case 18        
+    case 9        
         % 
         % N = 987
         % https://networkrepository.com/bn-mouse-kasthuri_graph_v4.php
@@ -227,7 +227,7 @@ switch networkFlag
         nameStr = 'Mouse visual cortex';
         nameStr2 = 'Visual cortex: Mouse';
         
-    case 19        
+    case 10        
         %
         % N = 1458
         % https://networkrepository.com/bio-yeast-protein-inter.php
@@ -248,7 +248,7 @@ switch networkFlag
         nameStr = 'Yeast protein';
         nameStr2 = 'Protein interaction: Yeast';
         
-    case 20        
+    case 11        
         %
         % N = 483
         % https://networkrepository.com/bio-DM-LC.php
@@ -269,7 +269,7 @@ switch networkFlag
         nameStr = 'WormNet DM-LC';
         nameStr2 = 'Protein interaction: Fly (2)';
         
-    case 21        
+    case 12        
         %
         % N = 2831
         % https://networkrepository.com/bio-DM-HT.php
@@ -289,7 +289,7 @@ switch networkFlag
         nameStr = 'WormNet DM-HT';
         nameStr2 = 'Protein interaction: Fly';
         
-    case 22        
+    case 13        
         %
         % N = 516
         % https://networkrepository.com/bio-diseasome.php
@@ -306,7 +306,7 @@ switch networkFlag
         nameStr = 'Human diseases';
         nameStr2 = 'Human disease';
         
-    case 23        
+    case 14        
         %
         % N = 993
         % https://networkrepository.com/bio-CE-LC.php
@@ -327,7 +327,7 @@ switch networkFlag
         nameStr = 'WormNet CE-LC';
         nameStr2 = 'Protein interaction: Worm';
         
-    case 24        
+    case 15        
         %
         % N = 2194
         % https://networkrepository.com/bio-CE-HT.php
@@ -347,7 +347,7 @@ switch networkFlag
         nameStr = 'WormNet CE-HT';
         nameStr2 = 'Protein interaction: Worm (2)';
         
-    case 25
+    case 16
         % 
         % Pages linking to www.epa.gov
         % http://vlado.fmf.uni-lj.si/pub/networks/data/web/Epa.net
@@ -367,7 +367,7 @@ switch networkFlag
         nameStr = 'EPA';
         nameStr2 = 'Pages linking to www.epa.gov';
         
-    case 26
+    case 17
         %
         % Roads, Minnesota, Network Data Repository
         % https://networkrepository.com/road-minnesota.php
@@ -380,7 +380,7 @@ switch networkFlag
         nameStr = 'Road network, Minnesota';
         nameStr2 = 'Road network: Minnesota';
         
-    case 27
+    case 18
         %
         % Roads, Europe, Network Data Repository
         % https://networkrepository.com/road-euroroad.php
@@ -393,7 +393,7 @@ switch networkFlag
         nameStr = 'Road network, Europe';
         nameStr2 = 'Road network: Europe';
         
-    case 28
+    case 19
         %
         % s208_st, Uri Alon
         % https://www.weizmann.ac.il/mcb/UriAlon/sites/mcb.UriAlon/files/uploads/CollectionsOfComplexNetwroks/s208_st.txt
@@ -406,7 +406,7 @@ switch networkFlag
         nameStr = 'Circuit s208';
         nameStr2 = 'Circuit';
         
-    case 29
+    case 20
         %
         % s420_st, Uri Alon
         % https://www.weizmann.ac.il/mcb/UriAlon/sites/mcb.UriAlon/files/uploads/CollectionsOfComplexNetwroks/s420_st.txt
@@ -419,7 +419,7 @@ switch networkFlag
         nameStr = 'Circuit s420';
         nameStr2 = 'Circuit (2)';
         
-    case 30
+    case 21
         %
         % s838_st, Uri Alon
         % https://www.weizmann.ac.il/mcb/UriAlon/sites/mcb.UriAlon/files/uploads/CollectionsOfComplexNetwroks/s838_st.txt
@@ -432,7 +432,7 @@ switch networkFlag
         nameStr = 'Circuit s838';
         nameStr2 = 'Circuit (3)';
         
-    case 41
+    case 22
         %N = 15,810, sMax = 4, diam. = 17
         networkFile = 'ia-escorts-dynamic.edges.mat';
         load([networkFolder, '/', networkFile], 'A');
@@ -440,7 +440,7 @@ switch networkFlag
         nameStr = 'Escorts';
         nameStr2 = 'Escorts';
         
-    case 46
+    case 23
         %N = 308, sMax = 4, diam. = 12
         % Face-to-face contact network (day with largest LCC)
         % Firth et al. (2020) Using a real-world network to model localized COVID-19 control strategies
@@ -453,7 +453,7 @@ switch networkFlag
         nameStr = 'Firth-2020-Fri';
         nameStr2 = 'Firth-2020-Fri';
         
-    case 56
+    case 24
         %N = 62,917, sMax = 6, diam. = 33
         networkFile = 'pone.0276981.s001.mat';
         load([networkFolder, '/', networkFile], 'A');
