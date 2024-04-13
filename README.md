@@ -6,9 +6,9 @@ __Associated with the paper__\
 by\
 Jack Murdoch Moore, Michael Small, Gang Yan, Huijie Yang, Changgui Gu, and Haiying Wang.
 
-__Correlation dimension__ D is defined by the power-law\*\
+__Correlation dimension__ D is defined by the power-law†\
 c(s) ∝ s^(D-1),\
-where D is correlation dimension†, and c(s) is correlation (fraction of distinct nodes at distance s).
+where D is correlation dimension, and c(s) is correlation (fraction of distinct nodes at distance s).
 
 __To produce some figures__ from the manuscript, please run:\
 run_model_comparison\
