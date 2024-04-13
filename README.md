@@ -36,6 +36,6 @@ _small_world_manhattan_lcc.m_: Generate lattice\* or small world network* and re
 
 \# Correlated versions of BA networks are inclusivity model networks introduced in "Inclusivity enhances robustness and efficiency of social networks”, Physica A 563, 125490, by J.M. Moore, M. Small, and G. Yan (2021).
 
-§ Code for the pair-based model is adapted from pair_based_model.m by K. J. Sharkey (2010), which is available in the supplementary material for “Deterministic epidemic models on contact networks: correlations and unbiological terms”, Theoretical Population Biology, Volume 79, Issue 4, % June 2011, Pages 115-129.
+§ Code for the pair-based model is adapted from pair_based_model.m by K. J. Sharkey (2010), which is available in the supplementary material for “Deterministic epidemic models on contact networks: correlations and unbiological terms”, Theoretical Population Biology, Volume 79, Issue 4, June 2011, Pages 115-129.
 
 \* Lattices/small world networks are/are derived from regular d-dimensional toroidal lattices defined using a periodic version of the city block (or Manhattan or taxi cab) metric mentioned but not explored in "Epidemic dynamics on higher-dimensional small world networks", Applied Mathematics and Computation 421, 126911, by H. Wang, J. M. Moore, M. Small, J. Wang, H. Yang and C. Gu (2022) (associated code at https://github.com/JackMurdochMoore/small-world).
