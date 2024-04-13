@@ -93,7 +93,6 @@ saveCell = {...
     'errSIRDimMean', 'errSIRPAMean', 'errSIRPairBasedMean', 'errSIRREDMMean',...
     'tt', 'tt1',...
     'nnnI', 'nnnR', 'nnnS',...
-    'SSMeanList', 'IIMeanList', 'RRMeanList',...
     'nnIMean', 'nnI1ModelPA', 'nnI1ModelREDM', 'nnI1ModelPairBased', 'nnI1ModelDim',...
     'nnSMean', 'nnS1ModelPA', 'nnS1ModelPairBased', 'nnS1ModelREDM', 'nnS1ModelDim',...
     'nnRMean', 'nnR1ModelPA', 'nnR1ModelPairBased', 'nnR1ModelREDM', 'nnR1ModelDim',...
@@ -159,11 +158,7 @@ N1 = 1 + sum(nn1)/N; if isempty(N1); N1 = 1; end
 NCList = NaN(nTrials, 1);
 
 nnnI = NaN(nTrials, 1); nnnS = NaN(nTrials, 1); maxLength = 1;
-nnnSWithINeighbour = NaN(nTrials, 1);
-SSMeanList = zeros(1, 1);%Mean over trials of number of S;
-IIMeanList = zeros(1, 1);%Mean over trials of number of S;
 
-lineStyleCell = {'-', '--', '-.', ':'}; numLineStyle = numel(lineStyleCell);
 indNonS_0Cell = cell(1, nTrials);
 
 numI_0 = 1;%Number initially infected
@@ -177,7 +172,7 @@ for iiTrial = 1:nTrials
     NC = sum(compSize(unique(compID(indNonS_0(1:numI_0)))));%Total size of the components which can be infected
     NCList(iiTrial) = NC;
     
-    [tt, nnS, nnI, nnSWithINeighbour, stateList] = run_sir_0_mod_2(A, lam, gam, indNonS_0, numI_0, numR_0);%Run ground truth SIR simulation
+    [~, nnS, nnI, ~, ~] = run_sir_0_mod_2(A, lam, gam, indNonS_0, numI_0, numR_0);%Run ground truth SIR simulation
     
     nnR = N - nnS - nnI;
     
@@ -188,10 +183,6 @@ for iiTrial = 1:nTrials
         nnnS(iiTrial, :) = nnS;
         nnnI = [nnnI, repmat(nnnI(:, end), [1, diffLength])];
         nnnI(iiTrial, :) = nnI;
-        nnnSWithINeighbour = [nnnSWithINeighbour, zeros(nTrials, diffLength)];
-        nnnSWithINeighbour(iiTrial, :) = nnSWithINeighbour;
-        SSMeanList = [SSMeanList, SSMeanList(:, end)*ones(1, diffLength)];
-        IIMeanList = [IIMeanList, IIMeanList(:, end)*ones(1, diffLength)];
         maxLength = thisLength;
     else
         diffLength = maxLength - thisLength;
@@ -199,13 +190,7 @@ for iiTrial = 1:nTrials
         nnnS(iiTrial, :) = nnS;
         nnI = [nnI, ones(1, diffLength)*nnI(end)];
         nnnI(iiTrial, :) = nnI;
-        nnSWithINeighbour = [nnSWithINeighbour, zeros(1, diffLength)];
-        nnnSWithINeighbour(iiTrial, :) = nnSWithINeighbour;
-        stateList = [stateList, stateList(:, end)*ones(1, diffLength)];
     end
-    SSList = (stateList == 0); IIList = (stateList == 1);
-    SSMeanList = ((iiTrial - 1)*SSMeanList + SSList)/iiTrial;
-    IIMeanList = ((iiTrial - 1)*IIMeanList + IIList)/iiTrial;
     
 end
 
@@ -215,8 +200,6 @@ nnSMean = mean(nnnS, 1); nnIMean = mean(nnnI, 1);
 nnRMean = N - nnSMean - nnIMean;
 
 tt = 0:(numel(nnSMean) - 1);
-
-RRMeanList = 1 - SSMeanList - IIMeanList;
 
 % Dimensional spreading model:  
 [~, nnS1ModelDim, nnI1ModelDim] = run_sir_dim_new_1_mod(N, k, DCorr, alp, lam, gam, numS_0, numI_0, tt);
@@ -249,8 +232,8 @@ errSIRREDMMean = mean(sqrt((nnS1ModelREDM' - nnS1).^2 + (nnI1ModelREDM' - nnI1).
 
 legCell = {'True', 'Hom. pair', 'Red. eff. deg.', 'Pair-based', 'Dim.'};
 
-disp(['Mean error over t ∈ {0, 1, ..., ', num2str(max(tt1)), '} [Hom. pair, Red. eff. deg., Pair-based, Dim.]:']);
-disp([errSIRPAMean, errSIRREDMMean, errSIRPairBasedMean, errSIRDimMean]);
+disp(['Mean error in (S(t)/N, I(t)/N, R(t)/N) over t ∈ {0, 1, ..., ', num2str(max(tt1)), '} [Hom. pair, Red. eff. deg., Pair-based, Dim.]:']);
+disp([errSIRPAMean/N, errSIRREDMMean/N, errSIRPairBasedMean/N, errSIRDimMean/N]);
 
 %Plot number infected:
 
@@ -347,7 +330,7 @@ SIR0 = [numS_0, numI_0, N - (numS_0 + numI_0)];
 initZeroInds = (SIR0 <= 0);
 numInitZeroInds = sum(initZeroInds); numInitNonZeroInds = 3 - numInitZeroInds;
 SIR0(initZeroInds) = minInitVal; SIR0(~initZeroInds) = SIR0(~initZeroInds) + minInitVal*numInitZeroInds/numInitNonZeroInds;
-SIR0 = N*SIR0/sum(SIR0);
+SIR0 = N*SIR0/sum(SIR0);%Normalise
 S0 = SIR0(1);
 I0 = SIR0(2);
 R0 = SIR0(3);
@@ -374,9 +357,6 @@ y0 = ...
 % tol = 10^-10;
 % assert(abs((I0 + R0 + S0) - N) < tol);
 % assert(abs((SS0 + 2*SI0 + 2*SR0 + II0 + 2*IR0 + RR0) - n*N) < tol);
-% 
-% %Check: this should be n*N:
-% XX0 = SS0 + 2*SI0 + 2*SR0 + II0 + 2*IR0 + RR0;
 
 oDEFun = @(t, y) deriv_SIR_moment_closure(y, N, kMean, phi, lam, gam);
 [tt, y] = ode45(oDEFun, tt, y0);
@@ -393,9 +373,6 @@ SR = y(:, 6);
 II = y(:, 7);
 IR = y(:, 8);
 RR = y(:, 9);
-
-% %Check: this should be n*N:
-% XX = SS + 2*SI + 2*SR + II + 2*IR + RR;
 
 end
 
@@ -450,7 +427,7 @@ Z = first_order(iiZ);
 XY = second_order(iiX, iiY);
 YZ = second_order(iiY, iiZ);
 XZ = second_order(iiX, iiZ);
-if X<10^(-6) || Y<10^(-6)|| Z<10^(-6)
+if (X < 10^(-6)) || (Y < 10^(-6)) || (Z < 10^(-6))%Avoid numerical issues
     XYZ = 0;
 else
     XYZ = ((n - 1)/n)*(XY*YZ/Y)*((1 - phi) + (phi*N/n)*(XZ/(X*Z)));

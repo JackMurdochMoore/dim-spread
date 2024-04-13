@@ -2,13 +2,9 @@
 % 
 % Moore et al. (2024), "Network spreading from network dimension"
 %
-% Jack Moore, 2023
+% Jack Moore, 2024
 %
 function [tt, nnS, nnI] = run_sir_dim_new_1_mod(N, k, D, alp, lam, gam, numS_0, numI_0, tt)
-
-% tt = [];
-% t = 0;
-% tt = [tt, t];
 
 nnS = [];
 nS = numS_0;
@@ -40,7 +36,7 @@ for t = tt(2:end)
     
     b = 1 + (k - 1)*r^(D - 1)/(r^(D - 1) + (r + 1)^(D - 1) + (r + 2)^(D - 1));
     
-    nu = lam*(1 - (1 - a)^b)*alp*(r + 1)^(D - 1);
+    nu = lam*(1 - (1 - a)^b)*alp*(r + 1)^(D - 1);%Number of new infections
     
     nSNew = nS - nu;
     nINew = nI + nu - gam*nI;

@@ -156,7 +156,6 @@ N1 = 1 + sum(nn1)/N; if isempty(N1); N1 = 1; end
 NCList = NaN(nTrials, 1);
 
 nnnI = NaN(nTrials, 1); nnnS = NaN(nTrials, 1); maxLength = 1;
-nnnSWithINeighbour = NaN(nTrials, 1);
 
 indNonS_0Cell = cell(1, nTrials);
 
@@ -171,7 +170,7 @@ for iiTrial = 1:nTrials
     NC = sum(compSize(unique(compID(indNonS_0(1:numI_0)))));%Total size of the components which can be infected
     NCList(iiTrial) = NC;
     
-    [tt, nnS, nnI, nnSWithINeighbour, stateList] = run_sir_0_mod_2(A, lam, gam, indNonS_0, numI_0, numR_0);%Run ground truth SIR simulation
+    [~, nnS, nnI, ~, ~] = run_sir_0_mod_2(A, lam, gam, indNonS_0, numI_0, numR_0);%Run ground truth SIR simulation
     
     nnR = N - nnS - nnI;
     
@@ -182,8 +181,6 @@ for iiTrial = 1:nTrials
         nnnS(iiTrial, :) = nnS;
         nnnI = [nnnI, repmat(nnnI(:, end), [1, diffLength])];
         nnnI(iiTrial, :) = nnI;
-        nnnSWithINeighbour = [nnnSWithINeighbour, repmat(nnnSWithINeighbour(:, end), [1, diffLength])];
-        nnnSWithINeighbour(iiTrial, :) = nnSWithINeighbour;
         maxLength = thisLength;
     else
         diffLength = maxLength - thisLength;
@@ -233,8 +230,8 @@ errSIRHetMFMean = mean(sqrt((nnS1ModelMFHet - nnS1).^2 + (nnI1ModelMFHet - nnI1)
 
 legCell = {'True', 'Hom. MF', 'Het. MF', 'PDMC', 'Dim.'};
 
-disp(['Mean error over t ∈ {0, 1, ..., ', num2str(max(tt1)), '} [Hom. MF, Het. MF, PDMC, Dim.]:']);
-disp([errSIRMFMean, errSIRPDMCMean, errSIRHetMFMean, errSIRDimMean]);
+disp(['Mean error in (S(t)/N, I(t)/N, R(t)/N) over t ∈ {0, 1, ..., ', num2str(max(tt1)), '} [Hom. MF, Het. MF, PDMC, Dim.]:']);
+disp([errSIRMFMean/N, errSIRPDMCMean/N, errSIRHetMFMean/N, errSIRDimMean/N]);
 
 %Plot number infected:
 
@@ -314,64 +311,6 @@ save([saveResultsFolder, '\', nameStr, '.mat'], saveCell{:});
 disp(['That took ', num2str(totalTime), ' s.']);
 end
 
-% Run dimensional SIR spreading model
-% 
-% Moore et al. (2024), "Network spreading from network dimension"
-%
-% Jack Moore, 2023
-%
-function [tt, nnS, nnI] = run_sir_dim_new_1_mod(N, k, D, alp, lam, gam, numS_0, numI_0, tt)
-
-% tt = [];
-% t = 0;
-% tt = [tt, t];
-
-nnS = [];
-nS = numS_0;
-nnS = [nnS, nS];
-
-nnI = [];
-nI = numI_0;
-nnI = [nnI, nI];
-
-nR = N - (nS + nI);
-
-aa = NaN;
-rr = 0;
-
-for t = tt(2:end)
-    
-    r = ((nI + nR - 1)/(alp/D) + (1/2)^D)^(1/D) - (1/2);%From central node to nodes on perimeter  
-    if (r < 0)
-        r = 0;%In case of numerical problems (r should always be nonnegative)
-    end
-    rr = [rr, r];
-    
-    if (r == 0)%Avoid division by 0
-        a = 1;
-    else
-        a = min(1, nI/(alp*r^(D - 1)));%Estimate of the fraction of the boundary which has infected nodes
-    end
-    aa = [aa, a];
-    
-    b = 1 + (k - 1)*r^(D - 1)/(r^(D - 1) + (r + 1)^(D - 1) + (r + 2)^(D - 1));
-    
-    nu = lam*(1 - (1 - a)^b)*alp*(r + 1)^(D - 1);
-    
-    nSNew = nS - nu;
-    nINew = nI + nu - gam*nI;
-    nRNew = nR + gam*nI;
-    nS = nSNew;
-    nnS = [nnS, nS];
-    
-    nI = nINew;
-    nnI = [nnI, nI];
-    
-    nR = nRNew;
-    
-end
-end
-
 % Run homogeneous mean field SIR spreading model
 % 
 % Moore et al. (2024), "Network spreading from network dimension"
@@ -381,10 +320,6 @@ end
 function [tt, nnS, nnI] = run_sir_hom_mean_field(A, lam, gam, numS_0, numI_0, tt)
 
 N = size(A, 1);
-
-% tt = [];
-% t = 0;
-% tt = [tt, t];
 
 nnS = [];
 nS = numS_0;
