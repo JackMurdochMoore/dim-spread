@@ -233,7 +233,7 @@ errSIRHetMFMean = mean(sqrt((nnS1ModelMFHet - nnS1).^2 + (nnI1ModelMFHet - nnI1)
 
 legCell = {'True', 'Hom. MF', 'Het. MF', 'PDMC', 'Dim.'};
 
-disp(['Mean Error over t ∈ {0, 1, ..., ', num2str(max(tt1)), '} [Hom. MF, Het. MF, PDMC, Dim.]:']);
+disp(['Mean error over t ∈ {0, 1, ..., ', num2str(max(tt1)), '} [Hom. MF, Het. MF, PDMC, Dim.]:']);
 disp([errSIRMFMean, errSIRPDMCMean, errSIRHetMFMean, errSIRDimMean]);
 
 %Plot number infected:

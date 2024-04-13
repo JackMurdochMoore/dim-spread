@@ -249,7 +249,7 @@ errSIRREDMMean = mean(sqrt((nnS1ModelREDM' - nnS1).^2 + (nnI1ModelREDM' - nnI1).
 
 legCell = {'True', 'Hom. pair', 'Red. eff. deg.', 'Pair-based', 'Dim.'};
 
-disp(['Mean Error over t ∈ {0, 1, ..., ', num2str(max(tt1)), '} [Hom. pair, Red. eff. deg., Pair-based, Dim.]:']);
+disp(['Mean error over t ∈ {0, 1, ..., ', num2str(max(tt1)), '} [Hom. pair, Red. eff. deg., Pair-based, Dim.]:']);
 disp([errSIRPAMean, errSIRREDMMean, errSIRPairBasedMean, errSIRDimMean]);
 
 %Plot number infected:
