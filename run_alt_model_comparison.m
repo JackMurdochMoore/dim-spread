@@ -293,7 +293,7 @@ pl(3).Color = standard2Col; pl(3).MarkerFaceColor = standard2Col;
 pl(4).Color = standard3Col; pl(4).MarkerFaceColor = standard3Col;
 pl(5).Color = proposedCol; pl(5).MarkerFaceColor = proposedCol;
 box on; xlim([min(tt) - eps, min(max(tt), max(tt1)  + 1)]);
-xlabel('Time, $t$', 'Interpreter', 'LaTeX', 'FontSize', fontSize); ylabel('Frac. affected, $R(t)/N$', 'Interpreter', 'LaTeX', 'FontSize', fontSize);
+xlabel('Time, $t$', 'Interpreter', 'LaTeX', 'FontSize', fontSize); ylabel('Frac. affected, $(I + R)/N$', 'Interpreter', 'LaTeX', 'FontSize', fontSize);
 set(gca, 'TickLabelInterpreter', 'LaTeX', 'FontSize', fontSize);
 yLim = ylim;
 set(gca, 'YScale', 'Log');
