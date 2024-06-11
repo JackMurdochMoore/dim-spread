@@ -32,10 +32,10 @@ _run_sir_pair_based_model.m_: Run pair-based SIR model§.\
 _small_world_manhattan.m_: Generate lattice\* or small world network\*.\
 _small_world_manhattan_lcc.m_: Generate lattice\* or small world network* and retain only its largest connected component.
 
-† Correlation dimension is estimated following "Correlation dimension in empirical networks”, _Physical Review E_ 107(3), 034310, by J.M. Moore, H. Wang, M. Small, G. Yan, H. Yang, and C. Gu (2023) (associated code at https://github.com/JackMurdochMoore/net-corr-dim).
+† Correlation dimension is estimated following "Correlation dimension in empirical networks", _Physical Review E_ 107(3), 034310, by J.M. Moore, H. Wang, M. Small, G. Yan, H. Yang, and C. Gu (2023) (associated code at https://github.com/JackMurdochMoore/net-corr-dim).
 
-\# Correlated versions of BA networks are inclusivity model networks introduced in "Inclusivity enhances robustness and efficiency of social networks”, _Physica A_ 563, 125490, by J.M. Moore, M. Small, and G. Yan (2021).
+\# Correlated versions of BA networks are inclusivity model networks introduced in "Inclusivity enhances robustness and efficiency of social networks", _Physica A_ 563, 125490, by J.M. Moore, M. Small, and G. Yan (2021).
 
-§ Code for the pair-based model is adapted from pair_based_model.m by K. J. Sharkey (2010), which is available in the supplementary material for “Deterministic epidemic models on contact networks: correlations and unbiological terms”, _Theoretical Population Biology_, Volume 79, Issue 4, June 2011, Pages 115-129.
+§ Code for the pair-based model is adapted from pair_based_model.m by K. J. Sharkey (2010), which is available in the supplementary material for "Deterministic epidemic models on contact networks: correlations and unbiological terms", _Theoretical Population Biology_, Volume 79, Issue 4, June 2011, Pages 115-129.
 
 \* Lattices/small world networks are/are derived from regular d-dimensional toroidal lattices defined using a periodic version of the city block (or Manhattan or taxi cab) metric mentioned but not explored in "Epidemic dynamics on higher-dimensional small world networks", _Applied Mathematics and Computation_ 421, 126911, by H. Wang, J. M. Moore, M. Small, J. Wang, H. Yang and C. Gu (2022) (associated code at https://github.com/JackMurdochMoore/small-world).
