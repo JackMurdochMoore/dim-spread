@@ -30,7 +30,7 @@ _run_sir_0_mod_2.m_: Run ground truth discrete SIR model.\
 _run_sir_dim_new_1.m_: Run dimensional spreading SIR model.\
 _run_sir_pair_based_model.m_: Run pair-based SIR model§.\
 _small_world_manhattan.m_: Generate lattice\* or small world network\*.\
-_small_world_manhattan_lcc.m_: Generate lattice\* or small world network* and retain only its largest connected component.\
+_small_world_manhattan_lcc.m_: Generate lattice\* or small world network* and retain only its largest connected component.
 
 † Correlation dimension is estimated following "Correlation dimension in empirical networks”, _Physical Review E_ 107(3), 034310, by J.M. Moore, H. Wang, M. Small, G. Yan, H. Yang, and C. Gu (2023) (associated code at https://github.com/JackMurdochMoore/net-corr-dim).
 
